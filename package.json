@@ -1,0 +1,31 @@
+{
+  "name": "frame-mapper",
+  "version": "1.0.0",
+  "description": "css style matrix3d math for projection mapping (corner pinning) any element, like youtube video player iframe",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "budo demo.js --live -- -t babelify",
+    "test": "echo 'todo'"
+  },
+  "keywords": [
+    "projection",
+    "mapping",
+    "style",
+    "css",
+    "matrix",
+    "warp",
+    "matrix3d"
+  ],
+  "author": "forresto",
+  "license": "MIT",
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^14.0.0",
+    "budo": "^9.4.7",
+    "eslint-config-standard": "^6.2.1"
+  },
+  "dependencies": {
+    "mobx": "^3.0.2",
+    "yo-yo": "^1.4.0"
+  }
+}
