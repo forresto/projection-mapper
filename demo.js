@@ -17,9 +17,9 @@ let frames = [
   },
   {
     type: 'img',
-    src: 'http://meemoo.org/images/meemoo-illo-by-jyri-pieniniemi-400.png',
-    width: 640,
-    height: 360,
+    src: 'http://meemoo.org/css/img/logo.png',
+    width: 600,
+    height: 144,
     x1: 450,
     y1: 100,
     x2: 650,
