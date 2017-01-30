@@ -25,6 +25,7 @@
     "eslint-config-standard": "^6.2.1"
   },
   "dependencies": {
+    "dom-css": "^2.1.0",
     "mobx": "^3.0.2",
     "yo-yo": "^1.4.0"
   }
