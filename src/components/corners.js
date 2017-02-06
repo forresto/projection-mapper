@@ -1,20 +1,16 @@
 const yo = require('yo-yo')
+const {action} = require('mobx')
 
 
-function corner (index, x, y, title, item) {
-  function onDrag (event) {
-    if (event.x === 0) return
-    item['x' + index] = event.x
-    item['y' + index] = event.y
-  }
+function dragCorner (corner, index, onDrag) {
   return yo`
     <div
-      title="${title}"
+      title="corner ${index}"
       style="
         background-color: white;
         position: absolute;
-        left: ${x}px;
-        top: ${y}px;
+        left: ${corner.x}px;
+        top: ${corner.y}px;
         width: 1rem;
         height: 1rem;
         text-align: center;
@@ -28,16 +24,23 @@ function corner (index, x, y, title, item) {
   `
 }
 
-function corners (item) {
-  const {x1, y1, x2, y2, x3, y3, x4, y4} = item
+function dragCorners (item) {
+  const {corners} = item
   return yo`
     <div class="corners">
-      ${corner('1', x1, y1, '1: top-left', item)}
-      ${corner('2', x2, y2, '2: top-right', item)}
-      ${corner('3', x3, y3, '3: bottom-right', item)}
-      ${corner('4', x4, y4, '4: bottom-left', item)}
+      ${corners.map(function (corner, index) {
+        const dragIndex = action(
+          function (event) {
+            const {x, y} = event
+            if (x === 0) return
+            corners[index].x = x
+            corners[index].y = y
+          }
+        )
+        return dragCorner(corner, index, dragIndex)
+      })}
     </div>
   `
 }
 
-module.exports = corners
+module.exports = dragCorners

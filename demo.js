@@ -1,36 +1,35 @@
-const {init} = require('./src/app')
+const app = require('./src/components/mapper')
 
-let frames = [
-  {
-    type: 'iframe',
-    src: 'https://player.vimeo.com/video/38103181',
-    width: 640,
-    height: 360,
-    x1: 50,
-    y1: 75,
-    x2: 450,
-    y2: 100,
-    x3: 450,
-    y3: 400,
-    x4: 25,
-    y4: 450,
-  },
-  {
-    type: 'img',
-    src: 'http://meemoo.org/css/img/logo.png',
-    width: 600,
-    height: 144,
-    x1: 450,
-    y1: 100,
-    x2: 650,
-    y2: 50,
-    x3: 650,
-    y3: 450,
-    x4: 450,
-    y4: 400,
-  },
-]
+const initialState = {
+  frames: [
+    {
+      type: 'iframe',
+      src: 'https://player.vimeo.com/video/38103181',
+      width: 640,
+      height: 360,
+      corners: [
+        {x: 50, y: 75},
+        {x: 450, y: 100},
+        {x: 450, y: 400},
+        {x: 25, y: 450},
+      ],
+    },
+    {
+      type: 'img',
+      src: 'http://meemoo.org/css/img/logo.png',
+      width: 600,
+      height: 144,
+      corners: [
+        {x: 450, y: 100},
+        {x: 650, y: 50},
+        {x: 650, y: 450},
+        {x: 450, y: 400},
+      ],
+    },
+  ],
+  selected: 1,
+}
 
 document.body.style.backgroundColor = 'black'
 
-init(frames)
+app(initialState, document.body)
