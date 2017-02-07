@@ -4,20 +4,17 @@ const {update} = require('yo-yo')
 useStrict(true)
 
 class Component {
-  constructor (render, state, parent) {
-    this.mounted = null
+  constructor (render, state) {
+    this.el = null
     this.state = observable(state)
-    this.render = autorun(
-      () => {
-        const el = render(this.state)
-        if (this.mounted) {
-          update(this.mounted, el)
-        } else {
-          this.mounted = el
-          parent.appendChild(el)
-        }
+    this.render = autorun(() => {
+      const element = render(this.state)
+      if (this.el) {
+        update(this.el, element)
+      } else {
+        this.el = element
       }
-    )
+    })
   }
 }
 

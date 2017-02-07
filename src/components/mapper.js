@@ -35,6 +35,6 @@ function render (state) {
   `
 }
 
-module.exports = function (state, parent) {
-  return new Component(render, state, parent)
+module.exports = function (state) {
+  return new Component(render, state)
 }

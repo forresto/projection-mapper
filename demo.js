@@ -32,4 +32,5 @@ const initialState = {
 
 document.body.style.backgroundColor = 'black'
 
-app(initialState, document.body)
+const mounted = app(initialState, document.body)
+document.body.appendChild(mounted.el)
